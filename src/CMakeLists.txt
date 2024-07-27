@@ -6,6 +6,7 @@ add_executable(a2bf
     main.cc
 
     models/board.cc
+    models/cell.cc
 )
 target_compile_features(a2bf PUBLIC cxx_std_23)
 target_include_directories(a2bf
