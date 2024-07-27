@@ -9,8 +9,17 @@
 
 #include <models/board.h>
 
+// DEBUG
+#include <models/cell.h>
+
 int main() {
     std::cout << "hello world" << std::endl;
     std::cout << "include models/board.h" << std::endl;
+
+    // DEBUG
+    a2bf::Cell cell;
+    std::cout << cell.ToString() << std::endl;
+    std::cout << sizeof(a2bf::Cell) << std::endl;
+
     return 0;
 }

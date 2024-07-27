@@ -14,8 +14,8 @@
 
 namespace a2bf {
 
-inline constexpr int kBoardWidth = 0;
-inline constexpr int kBoardHeight = 0;
+inline constexpr int kBoardWidth = 9;
+inline constexpr int kBoardHeight = 9;
 
 using CellArray = std::array<std::array<Cell, kBoardWidth>, kBoardHeight>;
 

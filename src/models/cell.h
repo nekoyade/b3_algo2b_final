@@ -5,6 +5,8 @@
  *
  */
 
+#include <string>
+
 #ifndef A2BF_MODELS_CELL_H_
 #define A2BF_MODELS_CELL_H_
 
@@ -22,6 +24,8 @@ public:
         state_ = CellState::kNone;
     }
     ~Cell() {}
+
+    std::string ToString() const;
 
 private:
     CellState state_;
