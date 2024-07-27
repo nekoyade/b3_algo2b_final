@@ -9,9 +9,6 @@
 
 #include <models/board.h>
 
-// DEBUG
-#include <models/cell.h>
-
 int main() {
     // DEBUG
     a2bf::Board board;
