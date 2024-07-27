@@ -25,6 +25,8 @@ public:
     Board() {}
     ~Board() {}
 
+    bool PlaceStone(CellState color, int row, int col);
+
     std::string ToString() const;
 
 private:

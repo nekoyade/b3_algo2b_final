@@ -5,11 +5,24 @@
  *
  */
 
+#include <cassert>
 #include <string>
 
 #include <models/board.h>
 
 namespace a2bf {
+
+bool Board::PlaceStone(CellState color, int row, int col) {
+    assert(color != CellState::kNone);
+    assert((0 <= row) && (row < kBoardHeight));
+    assert((0 <= col) && (col < kBoardWidth));
+    bool succeeds = false;
+    if (cells_[row][col].state() == CellState::kNone) {
+        cells_[row][col].state(color);
+        succeeds = true;
+    }
+    return succeeds;
+}
 
 std::string Board::ToString() const {
     std::string repr;

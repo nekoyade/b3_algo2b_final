@@ -25,6 +25,9 @@ public:
     }
     ~Cell() {}
 
+    CellState state() const { return state_; }
+    void state(CellState state) { state_ = state; }
+
     std::string ToString() const;
 
 private:
