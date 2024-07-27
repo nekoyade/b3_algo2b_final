@@ -6,6 +6,7 @@
  */
 
 #include <array>
+#include <string>
 
 #include <models/cell.h>
 
@@ -23,6 +24,8 @@ class Board {
 public:
     Board() {}
     ~Board() {}
+
+    std::string ToString() const;
 
 private:
     CellArray cells_;

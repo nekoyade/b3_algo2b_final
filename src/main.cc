@@ -20,6 +20,9 @@ int main() {
     a2bf::Cell cell;
     std::cout << cell.ToString() << std::endl;
     std::cout << sizeof(a2bf::Cell) << std::endl;
+    a2bf::Board board;
+    std::cout << board.ToString() << std::endl;
+    std::cout << sizeof(a2bf::Board) << std::endl;
 
     return 0;
 }
