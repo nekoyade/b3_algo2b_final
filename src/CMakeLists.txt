@@ -5,6 +5,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 add_executable(a2bf
     main.cc
 
+    models/alphabeta.cc
     models/board.cc
     models/cell.cc
     models/game.cc
