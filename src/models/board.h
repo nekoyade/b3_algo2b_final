@@ -20,6 +20,8 @@ inline constexpr int kBoardHeight = 9;
 
 using CellArray = std::array<std::array<Cell, kBoardWidth>, kBoardHeight>;
 
+inline constexpr int kLengthOfGomokuLine = 5;
+
 class Board {
 public:
     Board() {
@@ -34,6 +36,8 @@ public:
     std::string ToString() const;
 
 private:
+    bool CheckWinOf(CellState color, int row, int col) const;
+
     CellArray cells_;
     CellState winner_;
 };
