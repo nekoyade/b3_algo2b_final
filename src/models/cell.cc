@@ -11,6 +11,25 @@
 
 namespace a2bf {
 
+std::string CellStateToString(CellState state) {
+    std::string repr;
+    switch (state) {
+    case CellState::kNone:
+        repr = "None";
+        break;
+    case CellState::kDark:
+        repr = "Dark";
+        break;
+    case CellState::kLight:
+        repr = "Light";
+        break;
+    default:
+        repr = "Unknown";
+        break;
+    }
+    return repr;
+}
+
 std::string Cell::ToString() const {
     std::string repr;
     switch (state_) {

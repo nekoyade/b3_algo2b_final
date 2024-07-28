@@ -22,8 +22,12 @@ using CellArray = std::array<std::array<Cell, kBoardWidth>, kBoardHeight>;
 
 class Board {
 public:
-    Board() {}
+    Board() {
+        winner_ = CellState::kNone;
+    }
     ~Board() {}
+
+    CellState winner() const { return winner_; }
 
     bool PlaceStone(CellState color, int row, int col);
 
@@ -31,6 +35,7 @@ public:
 
 private:
     CellArray cells_;
+    CellState winner_;
 };
 
 }  // namespace a2bf

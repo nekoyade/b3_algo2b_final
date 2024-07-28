@@ -18,6 +18,8 @@ enum class CellState : unsigned char {
     kLight,
 };
 
+std::string CellStateToString(CellState state);
+
 class Cell {
 public:
     Cell() {

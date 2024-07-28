@@ -17,19 +17,7 @@ int main() {
     bool succeeds;
 
     while (true) {
-        std::cout << "TURN: ";
-        switch (turn) {
-        case a2bf::CellState::kDark:
-            std::cout << "Dark";
-            break;
-        case a2bf::CellState::kLight:
-            std::cout << "Light";
-            break;
-        default:
-            std::cout << "?";
-            break;
-        }
-        std::cout << std::endl;
+        std::cout << "TURN: " << a2bf::CellStateToString(turn) << std::endl;
         std::cout << "Enter the row number: ";
         while (true) {
             std::cin >> row;
@@ -58,7 +46,9 @@ int main() {
             << std::endl;
         succeeds = board.PlaceStone(turn, row, col);
         if (succeeds) {
-            std::cout << board.ToString() << std::endl;
+            std::cout << board.ToString();
+            std::cout << "Winner: " << a2bf::CellStateToString(board.winner())
+                << std::endl;
             std::cout << std::endl;
             if (turn == a2bf::CellState::kDark) {
                 turn = a2bf::CellState::kLight;
