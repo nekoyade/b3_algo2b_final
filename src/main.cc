@@ -15,17 +15,17 @@ int main() {
     // DEBUG
     a2bf::Board board;
 
-    a2bf::MinimaxSolver minimax;
-    minimax.Minimax(board, a2bf::EvaluatorA);
+    //a2bf::MinimaxSolver minimax;
+    //std::cout << minimax.Minimax(board, a2bf::EvaluatorA) << std::endl;
 
-    /*
     a2bf::CellState turn = a2bf::CellState::kDark;
     int row, col;
     bool succeeds;
 
-    while (true) {
+    while (board.num_of_empty_cells() > 0) {
         std::cout << "Hash: " << board.ToHash() << std::endl;
         std::cout << "TURN: " << a2bf::CellStateToString(turn) << std::endl;
+        std::cout << "Empty grid: " << board.num_of_empty_cells() << std::endl;
         std::cout << "Enter the row number: ";
         while (true) {
             std::cin >> row;
@@ -64,7 +64,6 @@ int main() {
                 << std::endl;
         }
     }
-    */
 
     return 0;
 }

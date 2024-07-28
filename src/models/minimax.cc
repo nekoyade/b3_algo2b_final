@@ -18,10 +18,10 @@
 
 namespace a2bf {
 
-void MinimaxSolver::Minimax(
+double MinimaxSolver::Minimax(
         const Board& init, double (*evaluator)(const Board&)) {
     visited_boards_.clear();
-    MinimaxImpl(init, 1, CellState::kDark, evaluator);
+    return MinimaxImpl(init, 1, CellState::kDark, evaluator);
 }
 
 double MinimaxSolver::MinimaxImpl(
@@ -35,6 +35,9 @@ double MinimaxSolver::MinimaxImpl(
         return -std::numeric_limits<double>::infinity();
         break;
     default:
+        if (curr.num_of_empty_cells() <= 0) {
+            return 0.0;
+        }
         break;
     }
     if (depth >= kDepthLimit) {

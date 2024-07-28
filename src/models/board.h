@@ -27,11 +27,14 @@ class Board {
 public:
     Board() {
         winner_ = CellState::kNone;
+        num_of_empty_cells_ = kBoardHeight*kBoardWidth;
     }
     ~Board() {}
 
     const CellArray& cells() const { return cells_; }
+
     CellState winner() const { return winner_; }
+    int num_of_empty_cells() const { return num_of_empty_cells_; }
 
     bool PlaceStone(CellState color, int row, int col);
 
@@ -43,7 +46,9 @@ private:
     bool CheckWinOf(CellState color, int row, int col) const;
 
     CellArray cells_;
+
     CellState winner_;
+    int num_of_empty_cells_;
 };
 
 }  // namespace a2bf

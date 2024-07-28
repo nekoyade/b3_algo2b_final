@@ -20,7 +20,7 @@ public:
     MinimaxSolver() {}
     ~MinimaxSolver() {}
 
-    void Minimax(const Board& init, double (*evaluator)(const Board&));
+    double Minimax(const Board& init, double (*evaluator)(const Board&));
 
 private:
     double MinimaxImpl(

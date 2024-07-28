@@ -22,6 +22,7 @@ bool Board::PlaceStone(CellState color, int row, int col) {
     bool succeeds = false;
     if (cells_[row][col].state() == CellState::kNone) {
         cells_[row][col].state(color);
+        num_of_empty_cells_ -= 1;
         if (CheckWinOf(color, row, col)) {
             winner_ = color;
         }
