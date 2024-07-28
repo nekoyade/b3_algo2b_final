@@ -20,10 +20,12 @@ public:
     MinimaxSolver() {}
     ~MinimaxSolver() {}
 
-    void Minimax(const Board& init);
+    void Minimax(const Board& init, double (*evaluator)(const Board&));
 
 private:
-    double MinimaxImpl(const Board& curr, int depth, CellState turn);
+    double MinimaxImpl(
+        const Board& curr, int depth, CellState turn,
+        double (*evaluator)(const Board&));
 
     std::unordered_set<std::size_t> visited_boards_;
 };

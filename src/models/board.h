@@ -30,6 +30,7 @@ public:
     }
     ~Board() {}
 
+    const CellArray& cells() const { return cells_; }
     CellState winner() const { return winner_; }
 
     bool PlaceStone(CellState color, int row, int col);

@@ -18,13 +18,15 @@
 
 namespace a2bf {
 
-void MinimaxSolver::Minimax(const Board& init) {
+void MinimaxSolver::Minimax(
+        const Board& init, double (*evaluator)(const Board&)) {
     visited_boards_.clear();
-    MinimaxImpl(init, 1, CellState::kDark);
+    MinimaxImpl(init, 1, CellState::kDark, evaluator);
 }
 
 double MinimaxSolver::MinimaxImpl(
-        const Board& curr, int depth, CellState turn) {
+        const Board& curr, int depth, CellState turn,
+        double (*evaluator)(const Board&)) {
     switch (curr.winner()) {
     case CellState::kDark:
         return std::numeric_limits<double>::infinity();
@@ -36,7 +38,7 @@ double MinimaxSolver::MinimaxImpl(
         break;
     }
     if (depth >= kDepthLimit) {
-        return 0.0;  // TODO: Implement this.
+        return evaluator(curr);
     }
     double m = -std::numeric_limits<double>::infinity();
     for (int i = 0; i < kBoardHeight; ++i) {
@@ -55,7 +57,8 @@ double MinimaxSolver::MinimaxImpl(
                 continue;
             }
             visited_boards_.insert(next.ToHash());
-            double v = -MinimaxImpl(next, depth + 1, NextTurn(turn));
+            double v = -MinimaxImpl(
+                next, depth + 1, NextTurn(turn), evaluator);
                 // DEBUG
                 std::cout << "v: " << v << " ";
                 std::cout << "(depth: " << depth << ")" << std::endl;

@@ -8,11 +8,13 @@
 #ifndef A2BF_MODELS_GAME_H_
 #define A2BF_MODELS_GAME_H_
 
+#include "models/board.h"
+
 namespace a2bf {
 
 inline constexpr int kDepthLimit = 10;
 
-// ...
+double EvaluatorA(const Board& board);
 
 }  // namespace a2bf
 
