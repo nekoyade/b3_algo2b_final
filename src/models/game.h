@@ -12,7 +12,11 @@
 
 namespace a2bf {
 
+#ifdef SANMOKU
 inline constexpr int kDepthLimit = 10;
+#else
+inline constexpr int kDepthLimit = 3;
+#endif
 
 double EvaluatorA(const Board& board);
 

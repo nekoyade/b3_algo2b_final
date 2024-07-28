@@ -16,3 +16,23 @@ target_include_directories(a2bf
     PUBLIC
         ${PROJECT_SOURCE_DIR}/src
 )
+
+# Target: sanmoku
+add_executable(sanmoku
+    sanmoku.cc
+
+    models/alphabeta.cc
+    models/board.cc
+    models/cell.cc
+    models/game.cc
+    models/minimax.cc
+)
+target_compile_features(sanmoku PUBLIC cxx_std_23)
+target_include_directories(sanmoku
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/src
+)
+target_compile_options(sanmoku
+    PUBLIC
+        -DSANMOKU
+)
