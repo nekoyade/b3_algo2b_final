@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include "models/alphabeta.h"
 #include "models/board.h"
 #include "models/game.h"
 #include "models/minimax.h"
@@ -18,6 +19,11 @@ int main() {
     a2bf::MinimaxSolver minimax;
     std::cout
         << minimax.Minimax(board, a2bf::CellState::kDark, a2bf::EvaluatorA)
+        << std::endl;
+
+    a2bf::AlphabetaSolver alphabeta;
+    std::cout
+        << alphabeta.Alphabeta(board, a2bf::CellState::kDark, a2bf::EvaluatorA)
         << std::endl;
 
     /*

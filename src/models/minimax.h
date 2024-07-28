@@ -12,6 +12,7 @@
 #include <unordered_map>
 
 #include "models/board.h"
+#include "models/cell.h"
 
 namespace a2bf {
 

@@ -16,8 +16,7 @@
 namespace a2bf {
 
 double MinimaxSolver::Minimax(
-        const Board& init, CellState turn,
-        double (*evaluator)(const Board&)) {
+        const Board& init, CellState turn, double (*evaluator)(const Board&)) {
     evals_.clear();
     return MinimaxImpl(init, 1, turn, evaluator);
 }
