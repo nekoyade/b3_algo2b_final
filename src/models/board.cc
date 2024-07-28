@@ -5,12 +5,13 @@
  *
  */
 
+#include "models/board.h"
+
 #include <cassert>
 #include <cstddef>
 #include <string>
 
-#include <models/board.h>
-#include <models/cell.h>
+#include "models/cell.h"
 
 namespace a2bf {
 

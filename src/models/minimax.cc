@@ -5,11 +5,13 @@
  *
  */
 
+#include "models/minimax.h"
+
 #include <limits>
 
-#include <models/board.h>
-#include <models/cell.h>
-#include <models/minimax.h>
+#include "models/board.h"
+#include "models/cell.h"
+#include "models/game.h"
 
 // DEBUG
 #include <iostream>

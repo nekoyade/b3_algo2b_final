@@ -5,10 +5,10 @@
  *
  */
 
+#include "models/cell.h"
+
 #include <cassert>
 #include <string>
-
-#include <models/cell.h>
 
 namespace a2bf {
 

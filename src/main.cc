@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-#include <models/board.h>
-#include <models/minimax.h>
+#include "models/board.h"
+#include "models/minimax.h"
 
 int main() {
     // DEBUG

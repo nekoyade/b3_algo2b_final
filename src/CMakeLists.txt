@@ -7,6 +7,7 @@ add_executable(a2bf
 
     models/board.cc
     models/cell.cc
+    models/game.cc
     models/minimax.cc
 )
 target_compile_features(a2bf PUBLIC cxx_std_23)

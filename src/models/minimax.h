@@ -11,11 +11,9 @@
 #include <cstddef>
 #include <unordered_set>
 
-#include <models/board.h>
+#include "models/board.h"
 
 namespace a2bf {
-
-inline constexpr int kDepthLimit = 10;
 
 class MinimaxSolver {
 public:
