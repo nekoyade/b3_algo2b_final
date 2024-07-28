@@ -8,12 +8,16 @@
 #ifndef A2BF_MODELS_MINIMAX_H_
 #define A2BF_MODELS_MINIMAX_H_
 
+#include <models/board.h>
+
 namespace a2bf {
 
 class MinimaxSolver {
 public:
     MinimaxSolver() {}
     ~MinimaxSolver() {}
+
+    void Minimax(const Board& init);
 
 private:
     // ...

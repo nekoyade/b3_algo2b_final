@@ -5,10 +5,10 @@
  *
  */
 
-#include <string>
-
 #ifndef A2BF_MODELS_CELL_H_
 #define A2BF_MODELS_CELL_H_
+
+#include <string>
 
 namespace a2bf {
 

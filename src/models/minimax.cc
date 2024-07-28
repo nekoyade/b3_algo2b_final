@@ -5,10 +5,13 @@
  *
  */
 
+#include <models/board.h>
 #include <models/minimax.h>
 
 namespace a2bf {
 
-// ...
+void MinimaxSolver::Minimax(const Board& init) {
+    // TODO: Implement this.
+}
 
 }  // namespace a2bf

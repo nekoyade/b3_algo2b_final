@@ -5,13 +5,13 @@
  *
  */
 
+#ifndef A2BF_MODELS_BOARD_H_
+#define A2BF_MODELS_BOARD_H_
+
 #include <array>
 #include <string>
 
 #include <models/cell.h>
-
-#ifndef A2BF_MODELS_BOARD_H_
-#define A2BF_MODELS_BOARD_H_
 
 namespace a2bf {
 
