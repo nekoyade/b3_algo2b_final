@@ -51,11 +51,7 @@ int main() {
             std::cout << "Winner: " << a2bf::CellStateToString(board.winner())
                 << std::endl;
             std::cout << std::endl;
-            if (turn == a2bf::CellState::kDark) {
-                turn = a2bf::CellState::kLight;
-            } else if (turn == a2bf::CellState::kLight) {
-                turn = a2bf::CellState::kDark;
-            }
+            turn = a2bf::NextTurn(turn);
         } else {
             std::cout << "Failure! Please place it on any other grid."
                 << std::endl;

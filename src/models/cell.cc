@@ -5,11 +5,26 @@
  *
  */
 
+#include <cassert>
 #include <string>
 
 #include <models/cell.h>
 
 namespace a2bf {
+
+CellState NextTurn(CellState current_turn) {
+    assert(
+        (current_turn == CellState::kDark)
+        || (current_turn == CellState::kLight)
+    );
+    CellState next_turn;
+    if (current_turn == CellState::kDark) {
+        next_turn = CellState::kLight;
+    } else if (current_turn == CellState::kLight) {
+        next_turn = CellState::kDark;
+    }
+    return next_turn;
+}
 
 std::string CellStateToString(CellState state) {
     std::string repr;

@@ -18,6 +18,8 @@ enum class CellState : unsigned char {
     kLight,
 };
 
+CellState NextTurn(CellState current_turn);
+
 std::string CellStateToString(CellState state);
 
 class Cell {
