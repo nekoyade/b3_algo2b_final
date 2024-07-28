@@ -16,12 +16,12 @@
 
 namespace a2bf {
 
-inline constexpr int kBoardWidth = 9;
-inline constexpr int kBoardHeight = 9;
+inline constexpr int kBoardWidth = 3;//9;
+inline constexpr int kBoardHeight = 3;//9;
 
 using CellArray = std::array<std::array<Cell, kBoardWidth>, kBoardHeight>;
 
-inline constexpr int kLengthOfGomokuLine = 5;
+inline constexpr int kLengthOfGomokuLine = 3;//5;
 
 class Board {
 public:

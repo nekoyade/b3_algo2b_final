@@ -8,10 +8,16 @@
 #include <iostream>
 
 #include <models/board.h>
+#include <models/minimax.h>
 
 int main() {
     // DEBUG
     a2bf::Board board;
+
+    a2bf::MinimaxSolver minimax;
+    minimax.Minimax(board);
+
+    /*
     a2bf::CellState turn = a2bf::CellState::kDark;
     int row, col;
     bool succeeds;
@@ -57,6 +63,7 @@ int main() {
                 << std::endl;
         }
     }
+    */
 
     return 0;
 }

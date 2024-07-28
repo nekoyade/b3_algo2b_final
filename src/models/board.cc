@@ -9,8 +9,8 @@
 #include <cstddef>
 #include <string>
 
-#include <models/cell.h>
 #include <models/board.h>
+#include <models/cell.h>
 
 namespace a2bf {
 
