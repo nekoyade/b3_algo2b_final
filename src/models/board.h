@@ -9,6 +9,7 @@
 #define A2BF_MODELS_BOARD_H_
 
 #include <array>
+#include <cstddef>
 #include <string>
 
 #include <models/cell.h>
@@ -32,6 +33,8 @@ public:
     CellState winner() const { return winner_; }
 
     bool PlaceStone(CellState color, int row, int col);
+
+    std::size_t ToHash() const;
 
     std::string ToString() const;
 

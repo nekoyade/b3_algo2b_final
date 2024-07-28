@@ -6,8 +6,10 @@
  */
 
 #include <cassert>
+#include <cstddef>
 #include <string>
 
+#include <models/cell.h>
 #include <models/board.h>
 
 namespace a2bf {
@@ -25,6 +27,29 @@ bool Board::PlaceStone(CellState color, int row, int col) {
         succeeds = true;
     }
     return succeeds;
+}
+
+std::size_t Board::ToHash() const {
+    std::string repr;
+    for (int i = 0; i < kBoardHeight; ++i) {
+        for (int j = 0; j < kBoardWidth; ++j) {
+            switch (cells_[i][j].state()) {
+            case CellState::kNone:
+                repr.append("0");
+                break;
+            case CellState::kDark:
+                repr.append("1");
+                break;
+            case CellState::kLight:
+                repr.append("2");
+                break;
+            default:
+                repr.append("?");
+                break;
+            }
+        }
+    }
+    return std::hash<std::string>()(repr);
 }
 
 std::string Board::ToString() const {

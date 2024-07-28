@@ -17,6 +17,7 @@ int main() {
     bool succeeds;
 
     while (true) {
+        std::cout << "Hash: " << board.ToHash() << std::endl;
         std::cout << "TURN: " << a2bf::CellStateToString(turn) << std::endl;
         std::cout << "Enter the row number: ";
         while (true) {
