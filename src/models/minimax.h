@@ -9,7 +9,7 @@
 #define A2BF_MODELS_MINIMAX_H_
 
 #include <cstddef>
-#include <unordered_set>
+#include <unordered_map>
 
 #include "models/board.h"
 
@@ -20,14 +20,15 @@ public:
     MinimaxSolver() {}
     ~MinimaxSolver() {}
 
-    double Minimax(const Board& init, double (*evaluator)(const Board&));
+    double Minimax(
+        const Board& init, CellState turn, double (*evaluator)(const Board&));
 
 private:
     double MinimaxImpl(
         const Board& curr, int depth, CellState turn,
         double (*evaluator)(const Board&));
 
-    std::unordered_set<std::size_t> visited_boards_;
+    std::unordered_map<std::size_t, double> evals_;
 };
 
 }  // namespace a2bf

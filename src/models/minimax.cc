@@ -13,15 +13,13 @@
 #include "models/cell.h"
 #include "models/game.h"
 
-// DEBUG
-#include <iostream>
-
 namespace a2bf {
 
 double MinimaxSolver::Minimax(
-        const Board& init, double (*evaluator)(const Board&)) {
-    visited_boards_.clear();
-    return MinimaxImpl(init, 1, CellState::kDark, evaluator);
+        const Board& init, CellState turn,
+        double (*evaluator)(const Board&)) {
+    evals_.clear();
+    return MinimaxImpl(init, 1, turn, evaluator);
 }
 
 double MinimaxSolver::MinimaxImpl(
@@ -29,15 +27,15 @@ double MinimaxSolver::MinimaxImpl(
         double (*evaluator)(const Board&)) {
     switch (curr.winner()) {
     case CellState::kDark:
-        return std::numeric_limits<double>::infinity();
-        break;
     case CellState::kLight:
-        return -std::numeric_limits<double>::infinity();
+        if (curr.winner() == turn) {
+            return std::numeric_limits<double>::infinity();
+        } else {
+            return -std::numeric_limits<double>::infinity();
+        }
         break;
     default:
-        if (curr.num_of_empty_cells() <= 0) {
-            return 0.0;
-        }
+        if (curr.num_of_empty_cells() <= 0) { return 0.0; }
         break;
     }
     if (depth >= kDepthLimit) {
@@ -48,24 +46,13 @@ double MinimaxSolver::MinimaxImpl(
         for (int j = 0; j < kBoardWidth; ++j) {
             Board next = curr;
             if (!next.PlaceStone(turn, i, j)) { continue; }
-                // DEBUG
-                std::cout << "depth: " << depth << std::endl;
-                std::cout << next.ToString();
-                std::cout << next.ToHash() << std::endl;
-            if (visited_boards_.find(next.ToHash())
-                    != visited_boards_.end()) {
-                    // DEBUG
-                    std::cout << "visited" << std::endl;
-                    std::cout << std::endl;
-                continue;
+            double v;
+            if (evals_.find(next.ToHash()) != evals_.end()) {
+                v = evals_.at(next.ToHash());
+            } else {
+                v = -MinimaxImpl(next, depth + 1, NextTurn(turn), evaluator);
+                evals_.insert({next.ToHash(), v});
             }
-            visited_boards_.insert(next.ToHash());
-            double v = -MinimaxImpl(
-                next, depth + 1, NextTurn(turn), evaluator);
-                // DEBUG
-                std::cout << "v: " << v << " ";
-                std::cout << "(depth: " << depth << ")" << std::endl;
-                std::cout << std::endl;
             if (v > m) { m = v; }
         }
     }
