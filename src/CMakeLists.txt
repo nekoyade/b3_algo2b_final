@@ -21,6 +21,8 @@ target_include_directories(a2bf
 add_executable(perf
     perf.cc
 
+    interfaces/perf.cc
+
     models/alphabeta.cc
     models/board.cc
     models/cell.cc
