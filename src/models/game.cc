@@ -12,21 +12,11 @@
 
 namespace a2bf {
 
-double EvaluatorA(const Board& board) {
+double EvaluatorA(const Board& board, CellState turn) {
     double eval = 0.0;
-    const CellArray& cells = board.cells();
     for (int i = 0; i < kBoardHeight; ++i) {
         for (int j = 0; j < kBoardWidth; ++j) {
-            switch (cells[i][j].state()) {
-            case CellState::kDark:
-                eval += 1.0;
-                break;
-            case CellState::kLight:
-                eval -= 1.0;
-                break;
-            default:
-                break;
-            }
+            // ...
         }
     }
     return eval;

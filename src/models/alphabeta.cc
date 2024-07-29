@@ -16,7 +16,8 @@
 namespace a2bf {
 
 double AlphabetaSolver::Alphabeta(
-        const Board& init, CellState turn, double (*evaluator)(const Board&)) {
+        const Board& init, CellState turn,
+        double (*evaluator)(const Board&, CellState)) {
     evals_.clear();
     return AlphabetaImpl(
         init, 1, turn, evaluator, -std::numeric_limits<double>::infinity(),
@@ -25,7 +26,8 @@ double AlphabetaSolver::Alphabeta(
 
 double AlphabetaSolver::AlphabetaImpl(
         const Board& curr, int depth, CellState turn,
-        double (*evaluator)(const Board&), double alpha, double beta) {
+        double (*evaluator)(const Board&, CellState), double alpha,
+        double beta) {
     switch (curr.winner()) {
     case CellState::kDark:
     case CellState::kLight:
@@ -40,7 +42,7 @@ double AlphabetaSolver::AlphabetaImpl(
         break;
     }
     if (depth >= kDepthLimit) {
-        return evaluator(curr);
+        return evaluator(curr, turn);
     }
     double m = alpha;
     bool prunes = false;

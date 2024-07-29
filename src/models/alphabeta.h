@@ -22,12 +22,14 @@ public:
     ~AlphabetaSolver() {}
 
     double Alphabeta(
-        const Board& init, CellState turn, double (*evaluator)(const Board&));
+        const Board& init, CellState turn,
+        double (*evaluator)(const Board&, CellState));
 
 private:
     double AlphabetaImpl(
         const Board& curr, int depth, CellState turn,
-        double (*evaluator)(const Board&), double alpha, double beta);
+        double (*evaluator)(const Board&, CellState), double alpha,
+        double beta);
 
     std::unordered_map<std::size_t, double> evals_;
 };

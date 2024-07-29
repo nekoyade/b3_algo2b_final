@@ -22,12 +22,13 @@ public:
     ~MinimaxSolver() {}
 
     double Minimax(
-        const Board& init, CellState turn, double (*evaluator)(const Board&));
+        const Board& init, CellState turn,
+        double (*evaluator)(const Board&, CellState));
 
 private:
     double MinimaxImpl(
         const Board& curr, int depth, CellState turn,
-        double (*evaluator)(const Board&));
+        double (*evaluator)(const Board&, CellState));
 
     std::unordered_map<std::size_t, double> evals_;
 };

@@ -51,9 +51,10 @@ public:
 
     std::string ToString() const;
 
-private:
     int CountStonesOnLine(
         CellState color, int row, int col, int delta_row, int delta_col) const;
+
+private:
     bool ScanLine(
         CellState color, int row, int col, int delta_row, int delta_col) const;
 

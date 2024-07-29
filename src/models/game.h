@@ -9,6 +9,7 @@
 #define A2BF_MODELS_GAME_H_
 
 #include "models/board.h"
+#include "models/cell.h"
 
 namespace a2bf {
 
@@ -18,7 +19,7 @@ inline constexpr int kDepthLimit = 10;
 inline constexpr int kDepthLimit = 3;
 #endif
 
-double EvaluatorA(const Board& board);
+double EvaluatorA(const Board& board, CellState turn);
 
 }  // namespace a2bf
 

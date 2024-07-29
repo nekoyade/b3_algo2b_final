@@ -16,14 +16,15 @@
 namespace a2bf {
 
 double MinimaxSolver::Minimax(
-        const Board& init, CellState turn, double (*evaluator)(const Board&)) {
+        const Board& init, CellState turn,
+        double (*evaluator)(const Board&, CellState)) {
     evals_.clear();
     return MinimaxImpl(init, 1, turn, evaluator);
 }
 
 double MinimaxSolver::MinimaxImpl(
         const Board& curr, int depth, CellState turn,
-        double (*evaluator)(const Board&)) {
+        double (*evaluator)(const Board&, CellState)) {
     switch (curr.winner()) {
     case CellState::kDark:
     case CellState::kLight:
@@ -38,7 +39,7 @@ double MinimaxSolver::MinimaxImpl(
         break;
     }
     if (depth >= kDepthLimit) {
-        return evaluator(curr);
+        return evaluator(curr, turn);
     }
     double m = -std::numeric_limits<double>::infinity();
     for (int i = 0; i < kBoardHeight; ++i) {
