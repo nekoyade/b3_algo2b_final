@@ -24,12 +24,12 @@ int main() {
     a2bf::MinimaxSolver minimax;
     a2bf::AlphabetaSolver alphabeta;
 
-    std::cout << "Minimax" << std::endl;
+    std::cout << "Evaluation by minimax" << std::endl;
     a2bf::PerformMinimax(minimax, board, a2bf::EvaluatorA, 3, "A");
     a2bf::PerformMinimax(minimax, board, a2bf::EvaluatorB, 3, "B");
     std::cout << std::endl;
 
-    std::cout << "Alphabeta" << std::endl;
+    std::cout << "Evaluation by alphabeta" << std::endl;
     a2bf::PerformAlphabeta(alphabeta, board, a2bf::EvaluatorA, 3, "A");
     a2bf::PerformAlphabeta(alphabeta, board, a2bf::EvaluatorB, 3, "B");
 
