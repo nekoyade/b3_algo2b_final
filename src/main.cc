@@ -1,5 +1,5 @@
 /*  Project name    : A2BF
- *  File name       : main.c
+ *  File name       : main.cc
  *
  *  2024 Keitaro Kamo (nekoyade)
  *

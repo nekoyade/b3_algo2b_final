@@ -1,5 +1,5 @@
 /*  Project name    : A2BF
- *  File name       : sanmoku.c
+ *  File name       : sanmoku.cc
  *
  *  2024 Keitaro Kamo (nekoyade)
  *
@@ -14,7 +14,7 @@
 #include "models/minimax.h"
 
 int main() {
-    std::cout << "*Sanmoku-narabe" << std::endl;
+    std::cout << "*** Evaluation for sanmoku-narabe ***" << std::endl;
 
     a2bf::Board board;
     a2bf::MinimaxSolver minimax;

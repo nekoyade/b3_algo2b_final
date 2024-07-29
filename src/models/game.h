@@ -16,7 +16,7 @@ namespace a2bf {
 #ifdef SANMOKU
 inline constexpr int kDepthLimit = 10;
 #else
-inline constexpr int kDepthLimit = 3;
+inline constexpr int kDepthLimit = 4;
 #endif
 
 double EvaluatorA(const Board& board, CellState turn);
