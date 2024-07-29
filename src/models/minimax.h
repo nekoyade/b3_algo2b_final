@@ -18,12 +18,16 @@ namespace a2bf {
 
 class MinimaxSolver {
 public:
-    MinimaxSolver() {}
+    MinimaxSolver() {
+        call_counter_ = 0ll;
+    }
     ~MinimaxSolver() {}
 
     double Minimax(
         const Board& init, CellState turn,
         double (*evaluator)(const Board&, CellState));
+
+    long long int call_counter() const { return call_counter_; }
 
 private:
     double MinimaxImpl(
@@ -31,6 +35,8 @@ private:
         double (*evaluator)(const Board&, CellState));
 
     std::unordered_map<std::size_t, double> evals_;
+
+    long long int call_counter_;
 };
 
 }  // namespace a2bf

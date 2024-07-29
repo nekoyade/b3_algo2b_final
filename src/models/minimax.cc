@@ -19,12 +19,14 @@ double MinimaxSolver::Minimax(
         const Board& init, CellState turn,
         double (*evaluator)(const Board&, CellState)) {
     evals_.clear();
+    call_counter_ = 0ll;
     return MinimaxImpl(init, 1, turn, evaluator);
 }
 
 double MinimaxSolver::MinimaxImpl(
         const Board& curr, int depth, CellState turn,
         double (*evaluator)(const Board&, CellState)) {
+    call_counter_ += 1;
     switch (curr.winner()) {
     case CellState::kDark:
     case CellState::kLight:

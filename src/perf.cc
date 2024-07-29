@@ -27,11 +27,14 @@ double CalcElapsedTime(
     );
 }
 
-void PrintResults(double eval, double elapsed_time) {
+void PrintResults(
+        double eval, double elapsed_time, long long int call_counter) {
     std::cout << "      Eval: " << eval << std::endl;
     std::cout << "      Elapsed time: "
         << std::scientific << std::setprecision(15) << elapsed_time
         << " ms" << std::endl;
+    std::cout << "      Num. of calculated vertices: " << call_counter
+        << std::endl;
 }
 
 void PerformMinimax(
@@ -42,6 +45,7 @@ void PerformMinimax(
 
     double eval;
     double average_elapsed_time;
+    long long int call_counter;
     std::chrono::system_clock::time_point start, end;
     for (int i = 0; i < n; ++i) {
         start = std::chrono::system_clock::now();
@@ -51,13 +55,15 @@ void PerformMinimax(
         double elapsed_time = CalcElapsedTime(start, end);
         average_elapsed_time += elapsed_time;
 
+        call_counter = minimax.call_counter();
+
         std::cout << "    [" << i + 1 << "/" << n << "] " << std::endl;
-        PrintResults(eval, elapsed_time);
+        PrintResults(eval, elapsed_time, call_counter);
     }
     average_elapsed_time /= n;
 
     std::cout << "    [Result]" << std::endl;
-    PrintResults(eval, average_elapsed_time);
+    PrintResults(eval, average_elapsed_time, call_counter);
 }
 
 void PerformAlphabeta(
@@ -68,6 +74,7 @@ void PerformAlphabeta(
 
     double eval;
     double average_elapsed_time;
+    long long int call_counter;
     std::chrono::system_clock::time_point start, end;
     for (int i = 0; i < n; ++i) {
         start = std::chrono::system_clock::now();
@@ -77,13 +84,15 @@ void PerformAlphabeta(
         double elapsed_time = CalcElapsedTime(start, end);
         average_elapsed_time += elapsed_time;
 
+        call_counter = alphabeta.call_counter();
+
         std::cout << "    [" << i + 1 << "/" << n << "] " << std::endl;
-        PrintResults(eval, elapsed_time);
+        PrintResults(eval, elapsed_time, call_counter);
     }
     average_elapsed_time /= n;
 
     std::cout << "    [Result]" << std::endl;
-    PrintResults(eval, average_elapsed_time);
+    PrintResults(eval, average_elapsed_time, call_counter);
 }
 
 }  // namespace a2bf

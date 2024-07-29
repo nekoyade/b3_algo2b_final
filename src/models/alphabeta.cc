@@ -19,6 +19,7 @@ double AlphabetaSolver::Alphabeta(
         const Board& init, CellState turn,
         double (*evaluator)(const Board&, CellState)) {
     evals_.clear();
+    call_counter_ = 0ll;
     return AlphabetaImpl(
         init, 1, turn, evaluator, -std::numeric_limits<double>::infinity(),
         std::numeric_limits<double>::infinity());
@@ -28,6 +29,7 @@ double AlphabetaSolver::AlphabetaImpl(
         const Board& curr, int depth, CellState turn,
         double (*evaluator)(const Board&, CellState), double alpha,
         double beta) {
+    call_counter_ += 1;
     switch (curr.winner()) {
     case CellState::kDark:
     case CellState::kLight:
