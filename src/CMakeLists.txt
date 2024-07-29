@@ -17,6 +17,24 @@ target_include_directories(a2bf
         ${PROJECT_SOURCE_DIR}/src
 )
 
+# Target: perf_ab
+add_executable(perf_ab
+    perf_ab.cc
+
+    interfaces/perf.cc
+
+    models/alphabeta.cc
+    models/board.cc
+    models/cell.cc
+    models/game.cc
+    models/minimax.cc
+)
+target_compile_features(perf_ab PUBLIC cxx_std_23)
+target_include_directories(perf_ab
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/src
+)
+
 # Target: perf
 add_executable(perf
     perf.cc
