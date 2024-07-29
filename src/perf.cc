@@ -17,6 +17,7 @@
 int main() {
     std::cout << "*** Performance of evaluation for gomoku-narabe ***"
         << std::endl;
+    std::cout << "Depth limit: " << a2bf::kDepthLimit << std::endl;
     std::cout << std::endl;
 
     a2bf::Board board;
