@@ -17,6 +17,21 @@ target_include_directories(a2bf
         ${PROJECT_SOURCE_DIR}/src
 )
 
+# Target: gomoku
+add_executable(gomoku
+    gomoku.cc
+
+    models/alphabeta.cc
+    models/board.cc
+    models/cell.cc
+    models/game.cc
+)
+target_compile_features(gomoku PUBLIC cxx_std_23)
+target_include_directories(gomoku
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/src
+)
+
 # Target: perf_ab
 add_executable(perf_ab
     perf_ab.cc

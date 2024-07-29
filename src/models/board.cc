@@ -55,8 +55,15 @@ std::size_t Board::ToHash() const {
 }
 
 std::string Board::ToString() const {
-    std::string repr;
+    std::string repr = "  ";
+    for (int i = 0; i < kBoardWidth; ++i) {
+        repr.append(std::to_string(i + 1));
+        repr.append(" ");
+    }
+    repr.append("\n");
     for (int i = 0; i < kBoardHeight; ++i) {
+        repr.append(std::to_string(i + 1));
+        repr.append(" ");
         for (int j = 0; j < kBoardWidth; ++j) {
             repr.append(cells_[i][j].ToString());
         }
