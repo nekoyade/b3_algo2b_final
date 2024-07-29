@@ -20,6 +20,7 @@ inline constexpr int kDepthLimit = 4;
 #endif
 
 double EvaluatorA(const Board& board, CellState turn);
+double EvaluatorB(const Board& board, CellState turn);
 
 }  // namespace a2bf
 

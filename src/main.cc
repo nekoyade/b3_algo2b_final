@@ -67,7 +67,7 @@ int main() {
             std::cout << board.ToString();
             std::cout << "Winner: " << a2bf::CellStateToString(board.winner())
                 << std::endl;
-            std::cout << "Eval: " << a2bf::EvaluatorA(board, turn)
+            std::cout << "Eval: " << a2bf::EvaluatorB(board, turn)
                 << std::endl;
             std::cout << std::endl;
             turn = a2bf::NextTurn(turn);
