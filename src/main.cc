@@ -16,6 +16,7 @@ int main() {
     // DEBUG
     a2bf::Board board;
 
+    /*
     a2bf::MinimaxSolver minimax;
     std::cout
         << minimax.Minimax(board, a2bf::CellState::kDark, a2bf::EvaluatorA)
@@ -25,8 +26,8 @@ int main() {
     std::cout
         << alphabeta.Alphabeta(board, a2bf::CellState::kDark, a2bf::EvaluatorA)
         << std::endl;
+    */
 
-    /*
     a2bf::CellState turn = a2bf::CellState::kDark;
     int row, col;
     bool succeeds;
@@ -66,6 +67,8 @@ int main() {
             std::cout << board.ToString();
             std::cout << "Winner: " << a2bf::CellStateToString(board.winner())
                 << std::endl;
+            std::cout << "Eval: " << a2bf::EvaluatorA(board, turn)
+                << std::endl;
             std::cout << std::endl;
             turn = a2bf::NextTurn(turn);
         } else {
@@ -73,7 +76,6 @@ int main() {
                 << std::endl;
         }
     }
-    */
 
     return 0;
 }
