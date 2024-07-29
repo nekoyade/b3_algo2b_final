@@ -95,25 +95,39 @@ int CountStonesOnHalfLine(
     return count;
 }
 
-bool ScanLine(
-        CellState color, const CellArray& cells, int row, int col,
-        int delta_row, int delta_col) {
+}  // namespace
+
+int Board::CountStonesOnLine(
+        CellState color, int row, int col, int delta_row,
+        int delta_col) const {
     assert(color != CellState::kNone);
     assert((0 <= row) && (row < kBoardHeight));
     assert((0 <= col) && (col < kBoardWidth));
-    assert(cells[row][col].state() == color);
+    assert(cells_[row][col].state() == color);
     assert((-1 <= delta_row) && (delta_row <= 1));
     assert((-1 <= delta_col) && (delta_col <= 1));
     assert((delta_row != 0) || (delta_col != 0));
     int count = 1;
     count += CountStonesOnHalfLine(
-        color, cells, row, col, delta_row, delta_col);
+        color, cells_, row, col, delta_row, delta_col);
     count += CountStonesOnHalfLine(
-        color, cells, row, col, -delta_row, -delta_col);
-    return count >= kLengthOfGomokuLine;
+        color, cells_, row, col, -delta_row, -delta_col);
+    return count;
 }
 
-}  // namespace
+bool Board::ScanLine(
+        CellState color, int row, int col, int delta_row,
+        int delta_col) const {
+    assert(color != CellState::kNone);
+    assert((0 <= row) && (row < kBoardHeight));
+    assert((0 <= col) && (col < kBoardWidth));
+    assert(cells_[row][col].state() == color);
+    assert((-1 <= delta_row) && (delta_row <= 1));
+    assert((-1 <= delta_col) && (delta_col <= 1));
+    assert((delta_row != 0) || (delta_col != 0));
+    int count = CountStonesOnLine(color, row, col, delta_row, delta_col);
+    return count >= kLengthOfGomokuLine;
+}
 
 bool Board::CheckWinOf(CellState color, int row, int col) const {
     assert(color != CellState::kNone);
@@ -121,10 +135,10 @@ bool Board::CheckWinOf(CellState color, int row, int col) const {
     assert((0 <= col) && (col < kBoardWidth));
     assert(cells_[row][col].state() == color);
     return (
-        ScanLine(color, cells_, row, col, 0, 1)
-        || ScanLine(color, cells_, row, col, 1, 0)
-        || ScanLine(color, cells_, row, col, 1, 1)
-        || ScanLine(color, cells_, row, col, -1, 1)
+        ScanLine(color, row, col, 0, 1)
+        || ScanLine(color, row, col, 1, 0)
+        || ScanLine(color, row, col, 1, 1)
+        || ScanLine(color, row, col, -1, 1)
     );
 }
 

@@ -52,6 +52,11 @@ public:
     std::string ToString() const;
 
 private:
+    int CountStonesOnLine(
+        CellState color, int row, int col, int delta_row, int delta_col) const;
+    bool ScanLine(
+        CellState color, int row, int col, int delta_row, int delta_col) const;
+
     bool CheckWinOf(CellState color, int row, int col) const;
 
     CellArray cells_;
